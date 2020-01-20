@@ -1,0 +1,81 @@
+﻿@model DIPReX.Models.Security
+   
+
+
+@using (Html.BeginForm("Updatefile", "Home", FormMethod.Post,Model))
+{       
+        
+<div class="panel-group" id="prnt-pnl">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a id="first" data-toggle="collapse" data-parent="#prnt-pnl" href="#dipr_settings"> <b>Settings : </b></a>
+            </h4>
+        </div>
+
+
+        <div id="dipr_settings" class="collapse" style="padding:5px;padding-left:20px">
+
+            @Html.CheckBox("cb_denyByConcReq", Convert.ToBoolean(Model.GetProperty("denyByConcurrentRequests_enabled")))
+            @Html.Label("Deny IP Address based on the number of concurrent requests ") <br />
+            &#160; &#160; @Html.Label("Maximum number of concurrent requests: ")
+            &#160;  @Html.TextBox("maxConcurrentRequests", Model.GetProperty("maxConcurrentRequests"), new { style = "width:70px;text-align:center" }) <br /> <br />
+            @Html.CheckBox("cb_denyByNumReq", Convert.ToBoolean(Model.GetProperty("denyByRequestRate_enabled")))
+            @Html.Label("Deny IP Address based on the number of requests over a period of time ") <br />
+            &#160; &#160; @Html.Label("Maximum number of requests :    ")
+            &#160; &ensp; @Html.TextBox("maxRequests", Model.GetProperty("maxRequests"), new { style = "width:70px;text-align:center" }) <br />
+            &#160; &#160; @Html.Label("Time Period (in milliseconds) :  ")
+            &#160; &#160; &#160; @Html.TextBox("requestInterval", Model.GetProperty("requestIntervalInMilliseconds"), new { style = "width:70px;text-align:center" }) <br /> <br />
+            @Html.CheckBox("cb_enableLogging", Convert.ToBoolean(Model.GetProperty("enableLoggingOnlyMode")))
+            @Html.Label("Enable Logging Mode Only") <br />
+            &#160; &#160; @Html.Label("Deny Action : ") &#160;
+            @Html.DropDownListFor(
+            model => model.denyAction,
+            new SelectList(
+            new List<Object>
+                {
+                new { value = "Unauthorized" , text = "Unauthorized"  },
+                new { value = "Forbidden" , text = "Forbidden" },
+                new { value = "NotFound" , text = "NotFound"},
+                new { value = "AbortRequest" , text = "AbortRequest"}
+                },
+                "value",
+                "text",
+                Model.GetProperty("denyAction")
+                )
+                )
+        </div>
+
+
+    </div>
+
+    
+
+</div>
+        
+        
+<left>
+    &#160; &#160;  <button id="submit_button" class="btn btn-success" data-loading-text="Saving..." data-bind="click: saveXdt"> Update Settings </button>
+
+</left>  
+
+    }
+
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a id="second" data-toggle="collapse" data-parent="#prnt-pnl" href="#refer"> <b>References : </b></a>
+        </h4>
+    </div>
+
+
+    <div id="refer" class="collapse" style="padding:5px;padding-left:20px">
+        <a href="https://benperk.github.io/msdn/2016/2016-03-how-to-setup-ip-security-restrictions-for-an-azure-app-service.html">1. How to set up Access Restrictions for App Services  </a> <br />
+        <a href="https://docs.microsoft.com/en-us/iis/manage/configuring-security/using-dynamic-ip-restrictions">2. Using Dynamic IP Restricitons  </a>
+    </div>
+
+
+</div>
+

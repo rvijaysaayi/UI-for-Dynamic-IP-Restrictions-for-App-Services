@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+<location path="%XDT_SITENAME%" xdt:Locator="Match(path)">
+  <system.webServer>
+    <security xdt:Transform="InsertIfMissing">
+      <dynamicIpSecurity  enableLoggingOnlyMode="false" xdt:Transform="SetAttributes(enableLoggingOnlyMode)">
+          <denyByConcurrentRequests enabled="false"  maxConcurrentRequests="5" xdt:Transform  = "SetAttributes(enabled , maxConcurrentRequests)"/>
+        <denyByRequestRate enabled="false"  maxRequests="20"  requestIntervalInMilliseconds="200"  xdt:Transform="SetAttributes(enabled,maxRequests,requestIntervalInMilliseconds)"/>
+      </dynamicIpSecurity>
+    </security>
+  </system.webServer>
+</location>
+</configuration>
