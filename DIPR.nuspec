@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>dipr</id>
+    <title>Dynamic IP Restriction for App Services</title>
+    <version>1.0.1</version>
+    <authors>Vijay Saayi R, Nanduri Sri Ranga Ramanujam </authors>
+	<licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl> https://github.com/vijaysaayi/UI-for-Dynamic-IP-Restrictions-for-App-Services </projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The site extension provides an User Interface to update the Dynamic IP Restriction for App Services</description>
+    <iconUrl>https://github.com/vijaysaayi/UI-for-Dynamic-IP-Restrictions-for-App-Services/blob/master/dipr-icon.png</iconUrl>
+    <tags>ip security dynamic restriction deny allow block siteextension</tags>
+  </metadata>
+  <files>
+    <file src="**\*.*" target="content" />
+  </files>
+</package>
