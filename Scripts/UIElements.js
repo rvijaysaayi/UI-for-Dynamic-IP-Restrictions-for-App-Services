@@ -16,7 +16,7 @@
 function validateTextBox(id) {
 
 
-    if (isNaN($("#" + id)[0].value) || Number($("#" + id)[0].value) == 0) {
+    if (isNaN($("#" + id)[0].value) || Number($("#" + id)[0].value) == 0 || Number($("#" + id)[0].value) > 4294967295)  {
         alert(id + "should be a number between 1 and 4294967295 ");
         $("#submit_button").attr("disabled", true);
         return false;
