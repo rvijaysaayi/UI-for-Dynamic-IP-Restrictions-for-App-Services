@@ -1,4 +1,4 @@
-# UI for Dynamic IP Restrictions for App-Services
+# UI for Dynamic IP Restrictions for App Services
 
 Azure App Services has an interesting feature, "Dynamic IP Restriction" which can be used for protection against attacks such as Distributed Denial of Service.
 
